@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include ".sqllist.h"
+#include "sqllist.h"
 #define OVERFLOW -2
 #define INIT_SIZE 100
 #define ADD_SIZE 10
