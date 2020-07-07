@@ -124,7 +124,6 @@ void inputList(Linkedlist **L,int n)
 	}
 	*L = lPtr;
 }
-
 void mergeList(Linkedlist **A,Linkedlist **B,Linkedlist **C)
 {
 	Linkedlist *APtr = (*A)->next;
@@ -144,6 +143,7 @@ void mergeList(Linkedlist **A,Linkedlist **B,Linkedlist **C)
 			BPtr = BPtr->next;
 		}
 	}
+	(*C)->data = (*A)->data + (*B)->data;
 	CPtr->next = APtr?APtr:BPtr;	
 	return;
 }
@@ -154,10 +154,19 @@ int main(int argc, char *argv[])
 {
 	Linkedlist *L;
 	init(&L);
-	append(&L, 8);	
-	append(&L, 2);	
-	append(&L, 3);	
-	append(&L, 4);	
-	append(&L, 5);	
+
+
 	return 0;
 }
+
+/*
+	Linkedlist *L1,*L2;
+	init(&L1);
+	init(&L2);
+	append(&L1, 80);	
+	append(&L1, 20);	
+	append(&L1, 30);	
+	append(&L1, 40);	
+	append(&L1, 50);	
+	mergeList(&L,&L1,&L2);
+*/

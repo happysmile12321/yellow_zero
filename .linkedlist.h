@@ -17,4 +17,5 @@ void getElem(Linkedlist **L,int which,elemtype *e);
 void insertElem(Linkedlist **L,int which,elemtype e);
 void deleteElem(Linkedlist **L,int which,elemtype *e);
 void inputList(Linkedlist **L,int n);
+//merge two sequence list to one(C)
 void mergeList(Linkedlist **A,Linkedlist **B,Linkedlist **C);

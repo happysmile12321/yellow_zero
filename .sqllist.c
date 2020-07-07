@@ -110,20 +110,27 @@ int main(int argc, char *argv[])
 	SqList L;//point at the first element of sqlist
 	init(&L);	
 	int a,b,c,d,e;
-	a = 32;b=33;c=43;d=53;e=98;
+	a = 32;b=33;c=43;d=42;e=98;
 	addelement(&L, a);
 	addelement(&L, b);
 	addelement(&L, c);
 	addelement(&L, d);
 	addelement(&L, e);
-	addelementbywhichelement(&L, 3, 77);
-	showSqlist(&L);
+	//addelementbywhichelement(&L, 3, 77);
+	//showSqlist(&L);
 	int res;
-	deleteelementbywhichelement(&L, 3, &res);
+	//deleteelementbywhichelement(&L, 3, &res);
+	//showSqlist(&L);
+	SqList B;	
+	init(&B);	
+	a=1;b=2;c=3;d=4;e=98;
+	addelement(&B, a);
+	addelement(&B, b);
+	addelement(&B, c);
+	addelement(&B, d);
+	addelement(&B, e);
+	merge(&L, B);
 	showSqlist(&L);
-			
-
-
 	return 0;
 }
 
