@@ -20,7 +20,7 @@ void stack_init(stack* s)
 
 void get_top(stack* s,stackelem *e)
 {
-	if(s->top == s->base){printf("Stack is empty,error!\n");return;}
+	if(s->top == s->base){printf("\nStack is empty,error!\n");return;}
 	*e = *(s->top-1);
 }
 
@@ -58,15 +58,57 @@ void toOct(stack *s,stackelem d)
 	}
 }
 
+void handlebracket(stack *s,char *text)
+{
+	int text_length;
+	text_length = strlen(text);
+	int i = 0;
+	char c;
+	int temp;
+	printf("text:%s\n",text);
+	while(i<text_length)
+	{
+		c = *(text+i);
+		switch(c)
+		{
+			case '{':
+				push(s, (int)c);
+				break;
+			case '(':
+				push(s, (int)c);
+				break;
+			case ')':
+				pop(s, &temp);
+				if((char)temp!='(')
+				{
+					printf("\nError handle )\n");
+				}
+				break;
+			case '}':
+				pop(s, &temp);
+				if((char)temp!='{')
+				{
+					printf("\nError handle }\n");
+				}
+				break;
+			default:
+				printf("[%c]  ",c);
+				break;
+		}
+		i++;
+	}
+
+
+}
 
 
 int main(int argc, char *argv[])
 {
 	stack s;
 	stack_init(&s);
-	toOct(&s, 16);
-	printf("\n%o",16);
+	handlebracket(&s,"{({hello})}");
 	return 0;
+
 }
 /*
 	int e;
@@ -84,4 +126,8 @@ int main(int argc, char *argv[])
 		push(&s, i);	
 		i++;
 	}
+	-------------
+	toOct(&s, 16);
+	printf("\n%o",16);
+
 */

@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 typedef int elemtype;
 typedef struct{
 	elemtype* elem;//base address of sqlist(sequence list)

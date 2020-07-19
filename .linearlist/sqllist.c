@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "sqllist.h"
 #define OVERFLOW -2
 #define INIT_SIZE 100
