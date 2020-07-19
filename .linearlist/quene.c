@@ -74,17 +74,15 @@ status PrintQuene(LinkedQuene *quece)
 	return OK;
 }
 
-/*
-status DeleteQuene(LinkedQuene *quece,elemtype *e);
-*/
 
 status DeleteQuene(LinkedQuene *quece,elemtype *e)
 {
 	if(quece->front->next==NULL){printf("this quene is empty!\n");return NOT;}
-	struct Node * node = quece->front->next->next;
-	*e = quece->front->next->e;
-	free(quece->front);
-	quece->front->next = node;
+	struct Node * node = quece->front->next;
+	*e = node->e;
+	quece->front->next = node->next;
+	if(node==quece->rear) quece->rear = quece->front;
+	free(node);
 	return OK;
 }
 
@@ -100,6 +98,11 @@ int main(int argc, char *argv[])
 	EnQuene(&quene, 5);
 	EnQuene(&quene, 6);
 	EnQuene(&quene, 7);
+	int res;
+	DeleteQuene(&quene, &res);
+	DeleteQuene(&quene, &res);
+	DeleteQuene(&quene, &res);
+	DeleteQuene(&quene, &res);
 	PrintQuene(&quene);
 	return 0;
 }
