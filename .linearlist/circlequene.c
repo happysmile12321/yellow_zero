@@ -10,7 +10,7 @@ STATUS init_circle_quene(circlequene *quene)
 
 int QueneLength(circlequene *quene)
 {
-	return quene->rear - quene->base;
+	return quene->rear->quene->base;
 }
 
 
